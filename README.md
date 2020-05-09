@@ -39,21 +39,21 @@
 
 &ensp;&ensp;&ensp;&ensp;打开树莓派终端输入"sudo raspi-config"命令，然后按照下图顺序依次操作即可。
 
-![picture1.png](./picture/picture1.png)
+![本地图片](./picture/picture1.png)
 
-![picture2.png](./picture/picture2.png)
+![本地图片](./picture/picture2.png)
 
-![picture3.png](./picture/picture3.png)
+![本地图片](./picture/picture3.png)
 
-![picture4.png](./picture/picture4.png)
+![本地图片](./picture/picture4.png)
 
 &ensp;&ensp;&ensp;&ensp;以上就是开启树莓派I2C，接下来我们安装树莓I2C库在终端输入“sudo apt-get install i2c-tools”，输入完成后就可以看到正在下载I2C库，安装完成之后可以在终端输入“sudo i2cdetect -l”检测是否安装正确，若出现类似于下面的信息就说明安装正常。
 
-![picture5.png](./picture/picture5.png)
+![本地图片](./picture/picture5.png)
 
 &ensp;&ensp;&ensp;&ensp;在终端输入“sudo i2cdetect -y 1”命令即可扫描接在I2C总线上的所有I2C设备，并打印出该设备的I2C总线地址，且我们的扩展板的I2C地址为0x04。
 
-![picture6.png](./picture/picture6.png)
+![本地图片](./picture/picture6.png)
 
 ## 读取ADC模拟值
 
@@ -94,13 +94,17 @@
     }
 ```
 
-​				如果在生成当前文件时出现以下错误：
+&ensp;&ensp;&ensp;&ensp;如果在生成当前文件时出现以下错误：
 
-![picture7.png](./picture/picture7.png)
+![本地图片](./picture/picture7.png)
 
-​				如果出现这种问题时请修改生成命令入下图设置：
-​				Compile               gcc -Wall -c "%f"
-​				Build                     gcc -Wall -o "%e" -lwiringPi "%f"
-​				Lint                        cppcheck --language=c --enable=warning,style --template=gcc "%f"
 
-![picture8.png](./picture/picture8.png)
+&ensp;&ensp;&ensp;&ensp;如果出现这种问题时请修改生成命令入下图设置：
+
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Compile&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;gcc -Wall -c "%f"
+
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Build&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;gcc -Wall -o "%e" -lwiringPi "%f"
+
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Lint&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;cppcheck --language=c --enable=warning,style --template=gcc "%f"
+
+![本地图片](./picture/picture8.png)
