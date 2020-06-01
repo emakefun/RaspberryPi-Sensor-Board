@@ -28,7 +28,7 @@
 
 &ensp;&ensp;&ensp;&ensp;The MCU I2C address of the expansion board is 0x04, and the registered address is explained as follows:
 
-![picture9.png](./picture/picture9.png)
+![picture9-1.jpg](./picture/picture9—1.jpg)
 
   - 0x10 ~ 0x17: read ADC raw data
 
