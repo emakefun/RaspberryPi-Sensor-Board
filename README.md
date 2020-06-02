@@ -4,6 +4,7 @@
  [Emakefun]](http://www.emakefun.com)
 ![image](./picture/icon.png)
 
+![picture0.jpg](./picture/picture0.jpg)
 
 ## Feature
 
@@ -22,7 +23,8 @@
 - I2C address: 0x04
 
 ## Hardware Preview
-图片
+
+![pic_2.jpg](./picture/pic_2.jpg)
 
 ## Register
 
