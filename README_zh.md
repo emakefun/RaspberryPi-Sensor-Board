@@ -1,7 +1,7 @@
 # RaspberryPi-Sensor-Board
 [English](README.md) 中文版   
  [深圳市易创空间科技有限公司](http://www.emakefun.com)出品
-图片
+![picture0.jpg](./picture/picture0.jpg)
 
 
 ## 特点
@@ -21,7 +21,7 @@
 - I2C地址： 0x04
 
 ## 硬件概述
-图片
+![pic_1.jpg](./picture/pic_1.jpg)
 
 ## 寄存器
 
