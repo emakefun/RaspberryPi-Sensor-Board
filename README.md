@@ -2,7 +2,7 @@
 [中文版](README_zh.md)
 
  [Emakefun]](http://www.emakefun.com)
-![image](icon.png)
+![image](./picture/icon.png)
 
 
 ## Feature
