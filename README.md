@@ -2,7 +2,6 @@
 [中文版](README_zh.md)
 
  [Emakefun]](http://www.emakefun.com)
-![image](./picture/icon.png)
 
 ![picture0.jpg](./picture/picture0.jpg)
 
