@@ -65,14 +65,15 @@
 ### Python代码
 
 ```
-    import time
-    import smbus2 as smbus
-    ADC=smbus.SMBus(1)#声明使用I2C 1
+     import time
+     import smbus as smbus
     
-    while True:
-     ADC.write_byte(0x04,0x20)#往从机写一个字节
-     print(ADC.read_word_data(0x04,0x20))#树莓派读取扩展板返回回来的数据并打印出来
-     tiem.sleep(1)#延时1秒
+     ADC=smbus.SMBus(1)#Declare to use I2C 1
+    
+     while True:
+          ADC.write_byte(0x04,0x20)#Write a byte to the slave
+          print(ADC.read_word_data(0x04,0x20))#Raspberry Pi reads the data returned by the expansion board and prints it out
+          time.sleep(1)#
 ```
 
 ### C代码
