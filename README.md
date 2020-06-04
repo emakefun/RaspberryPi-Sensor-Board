@@ -67,14 +67,15 @@
 ### Python code
 
 ```
-    import time
-    import smbus2 as smbus
-    ADC=smbus.SMBus(1)#Declare to use I2C 1
+     import time
+     import smbus as smbus
     
-    while True:
-     ADC.write_byte(0x04,0x20)#Write a byte to the slave
-     print(ADC.read_word_data(0x04,0x20))#Raspberry Pi reads the data returned by the expansion board and prints it out
-     tiem.sleep(1)#Delay 1 second
+     ADC=smbus.SMBus(1)#Declare to use I2C 1
+    
+     while True:
+          ADC.write_byte(0x04,0x20)#Write a byte to the slave
+          print(ADC.read_word_data(0x04,0x20))#Raspberry Pi reads the data returned by the expansion board and prints it out
+          time.sleep(1)#
 ```
 
 ### C code
