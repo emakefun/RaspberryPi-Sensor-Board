@@ -33,9 +33,9 @@
 
   - 0x10 ~ 0x17: read ADC raw data
 
-  - 0x20 ~ 0x27: read input voltage
+  - 0x20 ~ 0x27: read input voltage(mv)
 
-  - 0x30 ~ 0x37: Read the ratio of input voltage to output voltage Input voltage / output voltage
+  - 0x30 ~ 0x37: Read the ratio of input voltage to output voltage Input voltage / output voltage(0~100)
 
 ##    Raspberry Pi I2C library installation
 
