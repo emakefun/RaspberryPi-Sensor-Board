@@ -54,19 +54,19 @@
 
 ![本地图片](./picture/picture6.png)
 
-  !!! 编辑config.txt文件设置树莓派IIC总线速度
+!!! 编辑config.txt文件设置树莓派IIC总线速度
 
-			sudo nano /boot/config.txt
+sudo nano /boot/config.txt
 
-		查找包含“dtparam=i2c_arm=on”的行，添加“，i2c_arm_baudrate=100000”，其中100000是新设置的速度(100kbit /s)，注意i2c前面的逗号。完整代码如下：
+查找包含“dtparam=i2c_arm=on”的行，添加“，i2c_arm_baudrate=100000”，其中100000是新设置的速度(100kbit /s)，注意i2c前面的逗号。完整代码如下：
 
-			dtparam=i2c_arm=on,i2c_arm_baudrate=100000
+dtparam=i2c_arm=on,i2c_arm_baudrate=100000
 
-		这样可以启用I2C总线的同时，也完成了新波特率的设置。编辑完成后，使用CTRL-X，然后选择Y，保存文件并退出。
+这样可以启用I2C总线的同时，也完成了新波特率的设置。编辑完成后，使用CTRL-X，然后选择Y，保存文件并退出。
 
 重新启动树莓派3B，使新的设置生效:
 
-			sudo reboot
+sudo reboot
 
 ## 读取ADC模拟值
 
