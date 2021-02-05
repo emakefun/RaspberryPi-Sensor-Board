@@ -57,6 +57,19 @@
 
 ![本地图片](./picture/picture6.png)
 
+!!! Edit the config. TXT file to set the Raspberry Pi IIC bus speed
+
+    sudo nano /boot/config.txt
+    
+Look for the line that contains "dtParam =i2c_arm=on" and add ", i2c_arm_baudrate=100000 "where 100000 is the new speed (100kbit /s), notice the comma before i2c. The complete code is as follows:
+
+    dtparam=i2c_arm=on,i2c_arm_baudrate=100000
+    
+This enables the I2C bus and also completes the new baud rate setup. When you're finished editing, use Ctrl-X, then Y, save the file and exit.
+Restart Raspberry Pi 3B to make the new Settings take effect:
+
+    sudo reboot
+
 ## Read ADC analog value
 
 &ensp;&ensp;&ensp;&ensp;As we all know, there is no ADC in Raspberry Pi, so the analog value of the sensor cannot be read directly. With the help of the MCU STM32 built into the expansion board, a 12-bit ADC can be read. This means that analog sensors can be used on the Raspberry Pi, and there are a total of 8 available interfaces.
