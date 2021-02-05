@@ -57,7 +57,7 @@
 
 ![本地图片](./picture/picture6.png)
 
-!!! Edit the config. TXT file to set the Raspberry Pi IIC bus speed
+!!! Edit the config.txt file to set the Raspberry Pi IIC bus speed
 
     sudo nano /boot/config.txt
     
@@ -66,7 +66,7 @@ Look for the line that contains "dtParam =i2c_arm=on" and add ", i2c_arm_baudrat
     dtparam=i2c_arm=on,i2c_arm_baudrate=100000
     
 This enables the I2C bus and also completes the new baud rate setup. When you're finished editing, use Ctrl-X, then Y, save the file and exit.
-Restart Raspberry Pi 3B to make the new Settings take effect:
+Restart Raspberry Pi to make the new Settings take effect:
 
     sudo reboot
 
