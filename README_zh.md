@@ -17,14 +17,14 @@
 - 工作电压：3.3V和5V 根据跳线帽选择 ADC检查电压
 - IO: 8路ADC检测
 - 与树莓派通信方式: I2C
-- I2C地址： 0x04
+- I2C地址： 0x24
 
 ## 硬件概述
 ![pic_1.jpg](./picture/pic_1.jpg)
 
 ## 寄存器
 
-&ensp;&ensp;&ensp;&ensp;扩展板MCU I2C地址为0x04，寄存地址说明如下：
+&ensp;&ensp;&ensp;&ensp;扩展板MCU I2C地址为0x24，寄存地址说明如下：
 
 ![picture9.png](./picture/picture9.png)
 
@@ -50,7 +50,7 @@
 
 ![本地图片](./picture/picture5.png)
 
-&ensp;&ensp;&ensp;&ensp;在终端输入“sudo i2cdetect -y 1”命令即可扫描接在I2C总线上的所有I2C设备，并打印出该设备的I2C总线地址，且我们的扩展板的I2C地址为0x04。
+&ensp;&ensp;&ensp;&ensp;在终端输入“sudo i2cdetect -y 1”命令即可扫描接在I2C总线上的所有I2C设备，并打印出该设备的I2C总线地址，且我们的扩展板的I2C地址为0x24。
 
 ![本地图片](./picture/picture6.png)
 
@@ -84,8 +84,8 @@
      ADC=smbus.SMBus(1)#Declare to use I2C 1
     
      while True:
-          ADC.write_byte(0x04,0x20)#Write a byte to the slave
-          print(ADC.read_word_data(0x04,0x20))#Raspberry Pi reads the data returned by the expansion board and prints it out
+          ADC.write_byte(0x24, 0x10)#Write a byte to the slave
+          print(ADC.read_word_data(0x24, 0x10))#Raspberry Pi reads the data returned by the expansion board and prints it out
           time.sleep(1)#
 ```
 
@@ -98,10 +98,10 @@
     int value;//定义一个变量
     int main (void){
         wiringPiSetup();//初始化WiringPi编码。
-        wiringPiI2CSetup(0x04);//打开I2C设备,0x04为扩展板上MCU I2C地址
+        wiringPiI2CSetup(0x24);//打开I2C设备,0x24为扩展板上MCU I2C地址
         while(1){
-            wiringPiI2CWrite(0x04,0x20);//往从机写一个字节
-            value = wiringPiI2CReadReg16(0x04,0x20);//读取从机指定地址的两个字节，并赋值给value
+            wiringPiI2CWrite(0x24,0x10);//往从机写一个字节
+            value = wiringPiI2CReadReg16(0x24,0x10);//读取从机指定地址的两个字节，并赋值给value
             printf("%d\r\n",value);//打印value
             delay(100);
         }
