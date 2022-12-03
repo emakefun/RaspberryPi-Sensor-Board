@@ -19,7 +19,7 @@
 - MCU :STM32
 - IO: 8-channel ADC detection
 - Communication method with Raspberry Pi: I2C
-- I2C address: 0x04
+- I2C address: 0x24
 
 ## Hardware Preview
 
@@ -27,7 +27,7 @@
 
 ## Register
 
-&ensp;&ensp;&ensp;&ensp;The MCU I2C address of the expansion board is 0x04, and the registered address is explained as follows:
+&ensp;&ensp;&ensp;&ensp;The MCU I2C address of the expansion board is 0x24, and the registered address is explained as follows:
 
 ![picture9-1.jpg](./picture/picture9—1.jpg)
 
@@ -53,18 +53,18 @@
 
 ![本地图片](./picture/picture5.png)
 
-&ensp;&ensp;&ensp;&ensp;Enter "sudo i2cdetect -y 1" command in the terminal to scan all I2C devices connected to the I2C bus and print out the I2C bus address of the device, and the I2C address of our expansion board is 0x04.
+&ensp;&ensp;&ensp;&ensp;Enter "sudo i2cdetect -y 1" command in the terminal to scan all I2C devices connected to the I2C bus and print out the I2C bus address of the device, and the I2C address of our expansion board is 0x24.
 
 ![本地图片](./picture/picture6.png)
 
 !!! Edit the config.txt file to set the Raspberry Pi IIC bus speed
 
     sudo nano /boot/config.txt
-    
+
 Look for the line that contains "dtParam =i2c_arm=on" and add ", i2c_arm_baudrate=100000 "where 100000 is the new speed (100kbit /s), notice the comma before i2c. The complete code is as follows:
 
     dtparam=i2c_arm=on,i2c_arm_baudrate=100000
-    
+
 This enables the I2C bus and also completes the new baud rate setup. When you're finished editing, use Ctrl-X, then Y, save the file and exit.
 Restart Raspberry Pi to make the new Settings take effect:
 
@@ -86,8 +86,8 @@ Restart Raspberry Pi to make the new Settings take effect:
      ADC=smbus.SMBus(1)#Declare to use I2C 1
     
      while True:
-          ADC.write_byte(0x04,0x20)#Write a byte to the slave
-          print(ADC.read_word_data(0x04,0x20))#Raspberry Pi reads the data returned by the expansion board and prints it out
+          ADC.write_byte(0x24,0x10)#Write a byte to the slave
+          print(ADC.read_word_data(0x24,0x10))#Raspberry Pi reads the data returned by the expansion board and prints it out
           time.sleep(1)#
 ```
 
@@ -100,10 +100,10 @@ Restart Raspberry Pi to make the new Settings take effect:
     int value;//Define a variable
     int main (void){
         wiringPiSetup();//Initialize WiringPi encoding.
-        wiringPiI2CSetup(0x04);//Open the I2C device, 0x04 is the MCU I2C address on the expansion board
+        wiringPiI2CSetup(0x24);//Open the I2C device, 0x24 is the MCU I2C address on the expansion board
         while(1){
-            wiringPiI2CWrite(0x04,0x20);//Write a byte to the slave
-            value = wiringPiI2CReadReg16(0x04,0x20);//Read two bytes from the specified address of the slave and assign it to value
+            wiringPiI2CWrite(0x24,0x10);//Write a byte to the slave
+            value = wiringPiI2CReadReg16(0x24,0x10);//Read two bytes from the specified address of the slave and assign it to value
             printf("%d\r\n",value);//Print value
             delay(100);
         }
